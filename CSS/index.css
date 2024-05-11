@@ -1,0 +1,79 @@
+main{
+  display: flex;  
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.seleccion-moneda {
+    display: flex;
+    width: 60%;
+    max-width: 550px;
+    height: 5%;
+    background-color: chocolate;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2em;
+}
+.seleccion-moneda p {
+margin-right: 10px;
+}
+
+.seleccion-moneda select {
+    background-color: saddlebrown;
+    width: 30%;
+}
+
+.contenedor-caja-moneda {
+    width: 95%;
+    height: 50%;
+    background-color: saddlebrown;
+    border-radius: 2em 5em;
+    display: flex;
+    justify-content: space-around;
+    align-content: space-evenly;
+    padding: 0 10px;
+    flex-wrap: wrap;
+}
+.caja-moneda {
+    width: 45%;
+    height: 15%;
+    background-color: chocolate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.caja-moneda img {
+    width: 10%;
+    max-width: 40px;
+    min-width: 25px;
+    
+}
+
+.caja-moneda div {
+    display: flex;
+    width: 85%;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding: 5px;
+    
+    
+}
+
+.contenedor-com-ven {
+    max-width: 100px;
+    margin-right: 20px;
+}
+
+
+.com-ven {
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
