@@ -42,7 +42,7 @@ justify-self: center;
     justify-content: center;
     gap: 5px;
     box-sizing: border-box;
-    overflow-y: scroll;
+    overflow-y: auto;
     
 }
 
@@ -58,6 +58,7 @@ justify-self: center;
     background-color: blue;
     border-radius: 30px;
     margin-bottom: 5px;
+    
 }
 .cabecera-tabla {
    text-align: center;
