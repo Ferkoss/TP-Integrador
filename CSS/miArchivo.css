@@ -27,7 +27,7 @@ justify-self: center;
     padding: 10px;
     max-height: 80%;
     width: 95%;
-    background-color: darksalmon;
+    background-color: #00d4ff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,13 +58,14 @@ justify-self: center;
     gap:5px;
     align-items: center;
     justify-content: center;
-    background-color: blue;
+    background-color: black;
     border-radius: 30px;
     margin-bottom: 5px;
     
 }
 .cabecera-tabla {
    text-align: center;
+   color: white;
     
 }
 

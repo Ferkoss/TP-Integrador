@@ -10,7 +10,7 @@ main{
     width: 60%;
     max-width: 550px;
     height: 5%;
-    background-color: chocolate;
+    background-color: #00d4ff;
     align-items: center;
     justify-content: center;
     border-radius: 2em;
@@ -20,7 +20,6 @@ margin-right: 10px;
 }
 
 .seleccion-moneda select {
-    background-color: saddlebrown;
     width: 30%;
 }
 
@@ -32,7 +31,7 @@ margin-right: 10px;
 .contenedor-caja-moneda {
     width: 95%;
     height: 50%;
-    background-color: saddlebrown;
+    background-color: #00d4ff;
     border-radius: 2em 5em;
     display: flex;
     justify-content: space-around;
@@ -43,7 +42,7 @@ margin-right: 10px;
 .caja-moneda {
     width: 45%;
     height: 15%;
-    background-color: chocolate;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;

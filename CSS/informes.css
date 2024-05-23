@@ -17,6 +17,7 @@ main {
 }
 
 .grafico {
+    border: 1px solid black;
     background-image: url("../IMG/grafico.png");
     background-position: center center;
     background-repeat: no-repeat;
@@ -30,7 +31,7 @@ main {
     max-width: 350px;
     height: 30%;
     border-radius: 20px;
-    background-color: darkturquoise;
+    background-color: #00d4ff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,7 +55,7 @@ width: 40px;
     }
 
 .cont-datos{
-    background-color: chocolate;
+    background-color: black;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -77,6 +78,7 @@ width: 40px;
 }
 .cont-datos-cabecera p {
     text-align: center;
+    color: white;
 }
 
 .cont-datos-tabla {
@@ -99,7 +101,7 @@ width: 40px;
 
 .moneda {
     grid-column: 1/6;
-    background-color: blue;
+    background-color: lightgray;
     width: 100%;
     height: 20px;
     max-height: 30px;
@@ -110,7 +112,7 @@ width: 40px;
 }
 
 .datos {
-    background-color: red;
+    border:1px solid gray;
     display: flex;
     flex-direction: column;
     justify-content: center;
