@@ -23,7 +23,9 @@ margin-right: 10px;
     width: 30%;
 }
 
-
+.seleccion-moneda i{
+    margin-left: 3px;
+}
 
 
 
@@ -32,16 +34,19 @@ margin-right: 10px;
     width: 95%;
     height: 50%;
     background-color: #00d4ff;
-    border-radius: 2em 5em;
+    border-radius: 15px;
     display: flex;
     justify-content: space-around;
-    align-content: space-evenly;
-    padding: 0 10px;
+    align-content: flex-start;
+    gap:10px;
+    padding: 10px;
     flex-wrap: wrap;
+    overflow-y: auto;
+    border: 1px solid black;
 }
 .caja-moneda {
     width: 45%;
-    height: 15%;
+    height: 60px;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -56,6 +61,7 @@ margin-right: 10px;
     min-width: 25px;
     
 }
+  
 
 
 
@@ -70,16 +76,45 @@ margin-right: 10px;
     
 }
 
+.caja-moneda div h4 {
+    font-size: 12.5px;
+}
+
 .contenedor-com-ven {
-    max-width: 100px;
-    margin-right: 20px;
+    max-width: 120px;
+    
+    
+    
 }
 
 
 .com-ven {
     display: flex;
     flex-direction: column;
-    
+    font-size: 14px;
     
 }
 
+
+
+@media screen and (max-width:550px){
+
+    .seleccion-moneda{
+        width: 90%;
+    }
+
+    .contenedor-caja-moneda{
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap :5px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .caja-moneda{
+        width: 80%;
+        
+    }
+
+}

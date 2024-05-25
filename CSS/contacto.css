@@ -6,17 +6,19 @@ main{
 }
 .contenedor-global {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    height: 80%;
-    width: 80%;
-    margin-top: 10px;
+    height: 90%;
+    width: 100%;
+    margin: 0 20px;
+    box-sizing: border-box;
 }
 .contenedor-contacto{
     border-radius: 20px 50px;
     background-color: lightblue;
     width: 50%;
-    height: 80%;
+    max-width: 550px;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,14 +46,14 @@ main{
     
 }
 
-.contenedor-contacto label {
+.contenedor-contacto form div label {
     font-size: 20px;
-    width: 30%;
-    margin-right: 5px;
+    width: 120px;
+    
 }
 
 .contenedor-contacto h3 {
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .botones {
@@ -81,17 +83,21 @@ main{
 
 .contenido-contacto{
     width: 50%;
-    height: 80%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 10px;
     
 }
 .contenido-contacto p{
     width: 80%;
     
+    
+    
 }
+
 .datos-contacto{
     display: flex;
     justify-content: center;
@@ -106,4 +112,35 @@ main{
     width: 30%;
     min-width: 100px;
     margin-left: 10px;
+}
+
+
+
+
+
+@media screen and (max-width:650px){
+    main h2 {
+        margin: 10px;
+    }
+    .contenedor-global{
+        flex-direction: column;
+        justify-content: flex-start;
+        
+        width: 100%;
+        height: 90%;
+        
+    }
+    .contenedor-contacto{
+        width: 90%;
+        margin-bottom: 5px;
+        
+    }
+
+    .contenido-contacto{
+        width: 100%;
+    }
+    
+    .datos-contacto{
+        margin: 5px;
+    }
 }

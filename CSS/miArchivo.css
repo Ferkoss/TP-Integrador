@@ -98,3 +98,7 @@ font-size: 15px;
 .datos-miarchivo img {
     width: 18px;
 }
+
+@media screen and (max-width:550px){
+    
+}

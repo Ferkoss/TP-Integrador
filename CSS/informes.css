@@ -14,6 +14,7 @@ main {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap :5px;
 }
 
 .grafico {
@@ -27,7 +28,7 @@ main {
 }
 
 .seleccion-moneda {
-    width: 35%;
+    width: 45%;
     max-width: 350px;
     height: 30%;
     border-radius: 20px;
@@ -78,6 +79,7 @@ width: 40px;
 }
 .cont-datos-cabecera p {
     text-align: center;
+    font-size: 12px;
     color: white;
 }
 
@@ -123,7 +125,9 @@ width: 40px;
     box-sizing: border-box;
     border-radius: 10px;
 }
-
+.datos i{
+    margin-top: 2px;
+}
 
 .compartir-info {
     background-color: black;
@@ -134,5 +138,17 @@ width: 40px;
     height: 40px;
     border-radius: 10px;
     
+}
+
+@media screen and (max-width:650px){
+    .cont-moneda{
+        flex-direction: column;
+        width: 100%;
+        
+    }
+    .cont-datos-cabecera p {
+        font-size: 10px;
+        
+    }
 }
 
