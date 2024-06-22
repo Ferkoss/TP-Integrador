@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/miArchivo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../JS/miArchivos.js" defer></script>
 </head>
 
-<body>
+<body onload="recarga()">
 
 
 
@@ -49,9 +50,9 @@
         <main>
             <div class="cabecera-main">
                 <h2>Mi Archivo</h2>
-                <img src="../IMG/printer_icon_123440.ico" alt="">
+                <img src="../IMG/printer_icon_123440.ico" alt="" onclick="imprSelec(`datos-tabla`)">
             </div>
-            <div class="datos">
+            <div class="datos" id="datos-tabla">
                 <div class="cont-cabecera-tabla">
                     <p class="cabecera-tabla"><b>FECHA</b></p>
                     <p class="cabecera-tabla"><b>MONEDA</b></p>
@@ -59,165 +60,8 @@
                     <p class="cabecera-tabla"><b>VENTA</b></p>
                     <p class="cabecera-tabla"><b>ACCIÓN</b></p>
                 </div>
-                <div class="cont-mi-archivo">
-                    
-                    <p class="fecha-mi-archivo">15/04/2024</p>
-                    <div class="datos-miarchivo"></div>
-                    <div class="datos-miarchivo">
-                        <p>Dólar Blue</p>
-                        <p>Dólar MEP</p>
-                        <p>Dólar Tarjeta</p>
-                        <p>Dólar Cripto</p>
-                        <p>Euro</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <p>$995</p>
-                        <p>$996.09</p>
-                        <p>$1355</p>
-                        <p>$1050</p>
-                        <p>$1000</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <p>$1015</p>
-                        <p>$1000.06</p>
-                        <p>$1419</p>
-                        <p>$1086</p>
-                        <p>$1200</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                    </div>
-
-
-
-
-
-                    <p class="fecha-mi-archivo">15/04/2024</p>
-                    <div class="datos-miarchivo"></div>
-                    <div class="datos-miarchivo">
-                        <p>Dólar Blue</p>
-                        <p>Dólar MEP</p>
-                        <p>Dólar Tarjeta</p>
-                        <p>Dólar Cripto</p>
-                        <p>Euro</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <p>$995</p>
-                        <p>$996.09</p>
-                        <p>$1355</p>
-                        <p>$1050</p>
-                        <p>$1000</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <p>$1015</p>
-                        <p>$1000.06</p>
-                        <p>$1419</p>
-                        <p>$1086</p>
-                        <p>$1200</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                    </div>
-
-                    <p class="fecha-mi-archivo">15/04/2024</p>
-                    <div class="datos-miarchivo"></div>
-                    <div class="datos-miarchivo">
-                        <p>Dólar Blue</p>
-                        <p>Dólar MEP</p>
-                        <p>Dólar Tarjeta</p>
-                        <p>Dólar Cripto</p>
-                        <p>Euro</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <p>$995</p>
-                        <p>$996.09</p>
-                        <p>$1355</p>
-                        <p>$1050</p>
-                        <p>$1000</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <p>$1015</p>
-                        <p>$1000.06</p>
-                        <p>$1419</p>
-                        <p>$1086</p>
-                        <p>$1200</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                    </div>
-
-                    <p class="fecha-mi-archivo">15/04/2024</p>
-                    <div class="datos-miarchivo"></div>
-                    <div class="datos-miarchivo">
-                        <p>Dólar Blue</p>
-                        <p>Dólar MEP</p>
-                        <p>Dólar Tarjeta</p>
-                        <p>Dólar Cripto</p>
-                        <p>Euro</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <p>$995</p>
-                        <p>$996.09</p>
-                        <p>$1355</p>
-                        <p>$1050</p>
-                        <p>$1000</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <p>$1015</p>
-                        <p>$1000.06</p>
-                        <p>$1419</p>
-                        <p>$1086</p>
-                        <p>$1200</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                    </div>
-                    <p class="fecha-mi-archivo">15/04/2024</p>
-                    <div class="datos-miarchivo"></div>
-                    <div class="datos-miarchivo">
-                        <p>Dólar Blue</p>
-                        <p>Dólar MEP</p>
-                        <p>Dólar Tarjeta</p>
-                        <p>Dólar Cripto</p>
-                        <p>Euro</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <p>$995</p>
-                        <p>$996.09</p>
-                        <p>$1355</p>
-                        <p>$1050</p>
-                        <p>$1000</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <p>$1015</p>
-                        <p>$1000.06</p>
-                        <p>$1419</p>
-                        <p>$1086</p>
-                        <p>$1200</p>
-                    </div>
-                    <div class="datos-miarchivo">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                        <img src="../IMG/cross_icon-icons.com_72347.ico" alt="">
-                    </div>
+                <div class="cont-mi-archivo" id="cont-mi-archivo">
+                 
                 </div>
             </div>
         </main>

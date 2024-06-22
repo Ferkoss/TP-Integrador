@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <script src="../JS/index.js" defer></script>
 </head>
 
-<body>
+<body onload="recarga()">
 
 
 
@@ -46,7 +46,7 @@
 
 
         <div class="migas-de-pan">
-            <p >Inicio</p>
+            <p>Inicio</p>
         </div>
 
 
@@ -54,225 +54,24 @@
             <h3><b>Pizarra de Cotizaciones</b></h3>
             <div class="seleccion-moneda">
                 <p>Seleccione una moneda: </p>
-                <select name="" id="">
-                    <option value="">Dólar Oficial</option>
-                    <option value="">Dólar Blue</option>
-                    <option value="">Dólar Bolsa (MEP)</option>
-                    <option value="">Dólar Contado Con Liqui (CCL)</option>
-                    <option value="">Dólar Tarjeta</option>
-                    <option value="">Dólar Mayorista</option>
-                    <option value="">Dólar Cripto</option>
-                    <option value="">Euro</option>
-                    <option value="">Real Brasileño</option>
-                    <option value="">Peso Chileno</option>
-                    <option value="">Peso Uruguayo</option>
+                <select name="" id="seleccion-moneda">
+                    <option value="" disabled selected></option>
+                    <option value="USD">Dólar Oficial</option>
+                    <option value="EUR">Euro</option>
+                    <option value="BRL">Real Brasileño</option>
+                    <option value="CLP">Peso Chileno</option>
+                    <option value="UYU">Peso Uruguayo</option>
                 </select>
                 <i class="fa-solid fa-coins"></i>
             </div>
-            <p>Datos actualizados al 15/04/2024 17:30hs</p>
-            <div class="contenedor-caja-moneda">
+            <p id="actualizacion">Datos actualizados al 15/04/2024 17:30hs</p>
+            <div class="contenedor-caja-moneda" id="contenedor-caja-moneda">
+
                 
-
-
-                <div class="caja-moneda">
-                    <div>
-                        <h4>OFICIAL</h4>
-                        <div class="contenedor-com-ven">
-                            <div class="com-ven">
-                                <p>compra</p>
-                                <p>$847</p>
-                            </div>
-                            <div class="com-ven">
-                                <p>venta</p>
-                                <p>$847</p>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="../IMG/star_13688.ico" alt="">
-                </div>
-                <div class="caja-moneda">
-                    <div>
-                        <h4>BLUE</h4>
-                        <div class="contenedor-com-ven">
-                            <div class="com-ven">
-                                <p>compra</p>
-                                <p>$995</p>
-                            </div>
-                            <div class="com-ven">
-                                <p>venta</p>
-                                <p>$1015</p>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="../IMG/star_13688.ico" alt="">
-                </div>
-                <div class="caja-moneda">
-                    <div>
-                        <h4>TARJETA</h4>
-                        <div class="contenedor-com-ven">
-                            <div class="com-ven">
-                                <p>compra</p>
-                                <p>$1335.2</p>
-                            </div>
-                            <div class="com-ven">
-                                <p>venta</p>
-                                <p>$1419.2</p>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="../IMG/star_13688.ico" alt="">
-                </div>
-                <div class="caja-moneda">
-                    <div>
-                        <h4>MEP</h4>
-                        <div class="contenedor-com-ven">
-                            <div class="com-ven">
-                                <p>compra</p>
-                                <p>$996.09</p>
-                            </div>
-                            <div class="com-ven">
-                                <p>venta</p>
-                                <p>$1000.6</p>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="../IMG/star_13688.ico" alt="">
-                </div>
-                <div class="caja-moneda">
-                    <div>
-                        <h4>CCL</h4>
-                        <div class="contenedor-com-ven">
-                            <div class="com-ven">
-                                <p>compra</p>
-                                <p>$1030.6</p>
-                            </div>
-                            <div class="com-ven">
-                                <p>venta</p>
-                                <p>$1038.6</p>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="../IMG/star_13688.ico" alt="">
-                </div>
-                <div class="caja-moneda">
-                    <div>
-                        <h4>CRIPTO</h4>
-                        <div class="contenedor-com-ven">
-                            <div class="com-ven">
-                                <p>compra</p>
-                                <p>$1050</p>
-                            </div>
-                            <div class="com-ven">
-                                <p>venta</p>
-                                <p>$1086</p>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="../IMG/star_13688.ico" alt="">
-                </div>
-                <div class="caja-moneda">
-                    <div>
-                        <h4>OFICIAL</h4>
-                        <div class="contenedor-com-ven">
-                            <div class="com-ven">
-                                <p>compra</p>
-                                <p>$847</p>
-                            </div>
-                            <div class="com-ven">
-                                <p>venta</p>
-                                <p>$847</p>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="../IMG/star_13688.ico" alt="">
-                </div>
-                <div class="caja-moneda">
-                    <div>
-                        <h4>BLUE</h4>
-                        <div class="contenedor-com-ven">
-                            <div class="com-ven">
-                                <p>compra</p>
-                                <p>$995</p>
-                            </div>
-                            <div class="com-ven">
-                                <p>venta</p>
-                                <p>$1015</p>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="../IMG/star_13688.ico" alt="">
-                </div>
-                <div class="caja-moneda">
-                    <div>
-                        <h4>OFICIAL</h4>
-                        <div class="contenedor-com-ven">
-                            <div class="com-ven">
-                                <p>compra</p>
-                                <p>$847</p>
-                            </div>
-                            <div class="com-ven">
-                                <p>venta</p>
-                                <p>$847</p>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="../IMG/star_13688.ico" alt="">
-                </div>
-                <div class="caja-moneda">
-                    <div>
-                        <h4>BLUE</h4>
-                        <div class="contenedor-com-ven">
-                            <div class="com-ven">
-                                <p>compra</p>
-                                <p>$995</p>
-                            </div>
-                            <div class="com-ven">
-                                <p>venta</p>
-                                <p>$1015</p>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="../IMG/star_13688.ico" alt="">
-                </div>
-                <div class="caja-moneda">
-                    <div>
-                        <h4>OFICIAL</h4>
-                        <div class="contenedor-com-ven">
-                            <div class="com-ven">
-                                <p>compra</p>
-                                <p>$847</p>
-                            </div>
-                            <div class="com-ven">
-                                <p>venta</p>
-                                <p>$847</p>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="../IMG/star_13688.ico" alt="">
-                </div>
-                <div class="caja-moneda">
-                    <div>
-                        <h4>BLUE</h4>
-                        <div class="contenedor-com-ven">
-                            <div class="com-ven">
-                                <p>compra</p>
-                                <p>$995</p>
-                            </div>
-                            <div class="com-ven">
-                                <p>venta</p>
-                                <p>$1015</p>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="../IMG/star_13688.ico" alt="">
-                </div>
-
-
             </div>
 
+
             <p>!Haga click en la estrella para guardar los datos de la cotizacionen sus favoritos</p>
-
-
 
 
 
