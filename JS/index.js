@@ -10,7 +10,7 @@ const arrayTerminaciones = [
 
 let datosSeleccionados = []
 let arrayDatos = []
-let arrayCajaMoneda=[]
+
 
 
 
@@ -46,6 +46,7 @@ async function cambioMoneda(moneda) {
     try {
         let response = await fetch(url)
         let datos = await response.json()
+        console.log(datos)
         switch (moneda) {
             case "/v1/dolares/oficial": datos.casa = "Dolar Oficial"
                 break
@@ -96,7 +97,7 @@ function creacionCajaMoneda(datos) {
     let datosCompra = datos.compra
     let datosVenta = datos.venta
     let datosFecha = datos.fechaActualizacion.slice(0, 10)
-    
+    let datosMoneda=datos.moneda
 
 
     let divCajaMoneda = document.createElement("div")
@@ -104,7 +105,6 @@ function creacionCajaMoneda(datos) {
     divCajaMoneda.classList.add("caja-moneda")
     contCajaMoneda.appendChild(divCajaMoneda)
     divCajaMoneda.style.display="none"
-    arrayCajaMoneda.push(divCajaMoneda)
 
     let div2 = document.createElement("div")
     divCajaMoneda.appendChild(div2)
@@ -115,13 +115,13 @@ function creacionCajaMoneda(datos) {
     Img.addEventListener("click", seleccionImagen = () => {
         if (Img.style.backgroundColor == "red") {
             Img.style.backgroundColor = "transparent"
-            datosSeleccionados = eliminarElemento(datosSeleccionados, datosCasa + "/" + datosCompra + "/" + datosVenta + "/" + datosFecha)
+            datosSeleccionados = eliminarElemento(datosSeleccionados, datosMoneda+" "+datosCasa + "/" + datosCompra + "/" + datosVenta + "/" + datosFecha)
             console.log(datosSeleccionados)
             localStorage.setItem("datos", datosSeleccionados)
         }
         else {
             Img.style.backgroundColor = "red"
-            datosSeleccionados.push(datosCasa + "/" + datosCompra + "/" + datosVenta + "/" + datosFecha)
+            datosSeleccionados.push(datosMoneda+" "+datosCasa  + "/" + datosCompra + "/" + datosVenta + "/" + datosFecha)
             localStorage.setItem("datos", datosSeleccionados)
             console.log(datosSeleccionados)
         }
@@ -129,7 +129,7 @@ function creacionCajaMoneda(datos) {
     })
 
     let h4 = document.createElement("h4")
-    h4.innerText = datos.casa
+    h4.innerText = datosMoneda+" "+datosCasa 
     div2.appendChild(h4)
 
     let divContComVen = document.createElement("div")
@@ -160,27 +160,16 @@ function creacionCajaMoneda(datos) {
     p4.innerText = datos.venta
     divVenta.appendChild(p4)
 
+    
 
-
-    if (existe(datosCasa, String(datosCompra), String(datosVenta), datosFecha)) {
-
+    if (existe(datosMoneda+" "+datosCasa, String(datosCompra), String(datosVenta), datosFecha)) {
+        
         Img.style.backgroundColor = "red"
     }
 
 }
 
 
-function eliminarElemento(array, elemento) {
-    nuevoArray = []
-    for (let i of array) {
-
-        if (i !== elemento) {
-
-            nuevoArray.push(i)
-        }
-    }
-    return nuevoArray
-}
 
 
 function existe(datosCasa, datosCompra, datosVenta, datosFecha) {
@@ -198,11 +187,10 @@ function existe(datosCasa, datosCompra, datosVenta, datosFecha) {
 
 seleccionMoneda.addEventListener("change",()=>{
     
-    for(moneda of arrayCajaMoneda){
+    for(let moneda of document.querySelectorAll(".caja-moneda")){
         if(moneda.getAttribute("data-moneda")==seleccionMoneda.value){
             moneda.style.display="flex"
             //actDatos.innerText = `Datos actualizados al ${moneda.getAttribute("data-fechaMoneda").slice(0, 10)}`
-            console.log(moneda.getAttribute("data-fechaMoneda"))
         }
         else{
             moneda.style.display="none"

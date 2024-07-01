@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabajo Practico Integrador</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/informes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../JS/informes.js" defer></script>
+    
 </head>
 
-<body>
+<body onload="recarga()">
 
 
 
@@ -30,10 +33,10 @@
                 </ul>
             </nav>
             <div class="comentario">
-                <img src="../IMG/cara.jpg" alt="">
+                <img src="../IMG/cara.jpg" alt="foto" id="imagen-comentario">
                 <div class="comentario-texto">
-                    <h3>Juan Pérez</h3>
-                    <p>Es la mejor página que visité en mi vida</p>
+                    <h3 id="nombre-comentario">Juan Pérez</h3>
+                    <p id="texto-comentario">Es la mejor página que visité en mi vida</p>
                 </div>
             </div>
         </section>
@@ -52,23 +55,24 @@
                 <div class="seleccion-moneda">
                     <h4>Seleccione una moneda</h4>
                     <div>
-                    <select name="" id="">
-                        <option value="">Todas</option>
-                        <option value="">Dólar Oficial</option>
-                        <option value="">Dólar Blue</option>
-                        <option value="">Dólar Bolsa (MEP)</option>
-                        <option value="">Dólar Contado con Liqui (CCL)</option>
-                        <option value="">Dólar Tarjeta</option>
-                        <option value="">Dólar Mayorista</option>
-                        <option value="">Dólar Cripto</option>
-                        <option value="">Euro</option>
-                        <option value="">Real Brasileño</option>
-                        <option value="">Peso Chileno</option>
+                    <select name="" id="seleccion-moneda">
+                        <option value="todas">Todas</option>
+                        <option value="USD Dolar Oficial">Dólar Oficial</option>
+                        <option value="USD blue">Dólar Blue</option>
+                        <option value="USD bolsa">Dólar Bolsa (MEP)</option>
+                        <option value="USD contadoconliqui">Dólar Contado con Liqui (CCL)</option>
+                        <option value="USD tarjeta">Dólar Tarjeta</option>
+                        <option value="USD mayorista">Dólar Mayorista</option>
+                        <option value="USD cripto">Dólar Cripto</option>
+                        <option value="EUR Euro Oficial">Euro Oficial</option>
+                        <option value="BRL Real Brasileño">Real Brasileño</option>
+                        <option value="CLP Peso Chileno">Peso Chileno</option>
+                        <option value="UYU Peso Uruguayo">Peso Uruguayo</option>
                     </select>
                     <img src="../IMG/Icon_Business_Set_00003_A_icon-icons.com_59841.ico" alt="">
                 </div>
                 </div>
-                <div class="grafico"></div>
+                <canvas id="miGrafica" class="grafico"></canvas>
             </div>
             <div class="cont-datos">
                 <div class="cont-datos-cabecera">
@@ -78,127 +82,7 @@
                     <p>VENTA</p>
                     <p>VARIACIÓN</p>
                 </div>
-                <div class="cont-datos-tabla">
-
-                    <div class="moneda">
-                        <p>Dolar Blue</p>
-                    </div>
-                    <div class="datos"></div>
-                    <div class="datos">
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                    </div>
-                    <div class="datos">
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                    </div>
-                    <div class="datos">
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p></div>
-                    <div class="datos">
-                        <i class="fa-solid fa-circle-up"></i>
-                        <i class="fa-regular fa-circle-down"></i>
-                        <i class="fa-solid fa-circle-up"></i>
-                        <i class="fa-regular fa-circle-down"></i>
-                        <i class="fa-solid fa-circle-up"></i>
-                        
-                    </div>
-                    
-                    <div class="moneda">
-                        <p>Dolar Blue</p>
-                    </div>
-                    <div class="datos"></div>
-                    <div class="datos">
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                    </div>
-                    <div class="datos">
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                    </div>
-                    <div class="datos">
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                    </div>
-                    <div class="datos">
-                        <i class="fa-solid fa-circle-up"></i>
-                        <i class="fa-regular fa-circle-down"></i>
-                        <i class="fa-solid fa-circle-up"></i>
-                        <i class="fa-regular fa-circle-down"></i>
-                        <i class="fa-solid fa-circle-up"></i>
-                        <i class="fa-regular fa-circle-down"></i>
-                        <i class="fa-solid fa-circle-up"></i>
-                        <i class="fa-regular fa-circle-down"></i>
-                        <i class="fa-solid fa-circle-up"></i>
-                        <i class="fa-regular fa-circle-down"></i>
-                    </div>
-
-                    <div class="moneda">
-                        <p>Dolar Blue</p>
-                    </div>
-                    <div class="datos"></div>
-                    <div class="datos">
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                        <p>15/04/2024</p>
-                    </div>
-                    <div class="datos">
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                    </div>
-                    <div class="datos">
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p>
-                        <p>$10000000</p></div>
-                    <div class="datos">
-                        <i class="fa-solid fa-circle-up"></i>
-                        <i class="fa-regular fa-circle-down"></i>
-                        <i class="fa-solid fa-circle-up"></i>
-                        <i class="fa-regular fa-circle-down"></i>
-                        <i class="fa-solid fa-circle-up"></i>
-                        
-                    </div>
-
+                <div class="cont-datos-tabla" id="cont-datos-tabla">
 
                 </div>
             </div>
@@ -260,5 +144,5 @@
     </footer>
     
 </body>
-
+<script src="../JS/common.js"></script>
 </html>

@@ -30,10 +30,10 @@
                 </ul>
             </nav>
             <div class="comentario">
-                <img src="../IMG/cara.jpg" alt="">
+                <img src="../IMG/cara.jpg" alt="foto" id="imagen-comentario">
                 <div class="comentario-texto">
-                    <h3>Juan Pérez</h3>
-                    <p>Es la mejor página que visité en mi vida</p>
+                    <h3 id="nombre-comentario">Juan Pérez</h3>
+                    <p id="texto-comentario">Es la mejor página que visité en mi vida</p>
                 </div>
             </div>
         </section>
@@ -51,23 +51,23 @@
           <div class="contenedor-global">
           <div class="contenedor-contacto">
             <h3>Datos de Contacto</h3>
-            <form>
+            <form id="form">
 
                 <div>
-                    <label for="name">Nombre</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="from_name">Nombre</label>
+                    <input type="text" id="from_name" name="from_name" required>
                 </div>
                 <div>
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="email_id">Email</label>
+                    <input type="email" id="email_id" name="email_id" required>
                 </div>
                 <div class="mensaje">
                     <label for="message">Mensaje</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
                 <div class="botones">
-                    <button type="button">Limpiar</button>
-                    <button type="submit">Enviar</button>
+                    <button type="button" id="limpiar">Limpiar</button>
+                    <button type="submit" id="button">Enviar</button>
                 </div>
             </form>
         </div>
@@ -142,5 +142,12 @@
     </footer>
     
 </body>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
+<script type="text/javascript">
+  emailjs.init('tvR12jHg4Tez_c-w3')
+</script>
+<script src="../JS/common.js"></script>
+<script src="../JS/contacto.js"></script>
 </html>

@@ -19,12 +19,9 @@ main {
 
 .grafico {
     border: 1px solid black;
-    background-image: url("../IMG/grafico.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size:100% 100%;
-    width: 60%;
-    height: 90%;
+    width: 60% !important;
+    height: 250px !important;
+    margin-right: 10px;
 }
 
 .seleccion-moneda {
@@ -148,7 +145,6 @@ width: 40px;
     }
     .cont-datos-cabecera p {
         font-size: 10px;
-        
     }
 }
 

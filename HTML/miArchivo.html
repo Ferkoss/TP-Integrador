@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/miArchivo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="../JS/miArchivos.js" defer></script>
+    
 </head>
 
 <body onload="recarga()">
@@ -31,10 +31,10 @@
                 </ul>
             </nav>
             <div class="comentario">
-                <img src="../IMG/cara.jpg" alt="">
+                <img src="../IMG/cara.jpg" alt="foto" id="imagen-comentario">
                 <div class="comentario-texto">
-                    <h3>Juan Pérez</h3>
-                    <p>Es la mejor página que visité en mi vida</p>
+                    <h3 id="nombre-comentario">Juan Pérez</h3>
+                    <p id="texto-comentario">Es la mejor página que visité en mi vida</p>
                 </div>
             </div>
         </section>
@@ -121,5 +121,6 @@
     </footer>
     
 </body>
-
+<script src="../JS/common.js"></script>
+<script src="../JS/miArchivos.js"></script>
 </html>
