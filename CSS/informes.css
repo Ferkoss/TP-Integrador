@@ -15,7 +15,10 @@ main {
     justify-content: space-around;
     align-items: center;
     gap :5px;
+    
 }
+
+
 
 .grafico {
     border: 1px solid black;

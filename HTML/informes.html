@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabajo Practico Integrador</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/informes.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="../JS/informes.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     
+
 </head>
 
 <body onload="recarga()">
@@ -26,9 +27,11 @@
             <nav class="navegador">
                 <ul>
                     <li><a href="index.html" id="Inicio"><i class="fa-solid fa-house"></i>Inicio</a></li>
-                    <li><a href="miArchivo.html" id="Mi-Archivo"><i class="fa-solid fa-folder"></i></i>Mi Archivo</a></li>
+                    <li><a href="miArchivo.html" id="Mi-Archivo"><i class="fa-solid fa-folder"></i></i>Mi Archivo</a>
+                    </li>
                     <li><a href="informes.html" id="Informes"><i class="fa-solid fa-file"></i>Informes</a></li>
-                    <li><a href="contacto.html" id="Contactenos"><i class="fa-solid fa-circle-user"></i>Contáctenos</a></li>
+                    <li><a href="contacto.html" id="Contactenos"><i class="fa-solid fa-circle-user"></i>Contáctenos</a>
+                    </li>
 
                 </ul>
             </nav>
@@ -43,7 +46,7 @@
 
 
         <div class="migas-de-pan">
-            <p ><a href="index.html">Inicio</a> / Informes</p>
+            <p><a href="index.html">Inicio</a> / Informes</p>
         </div>
 
 
@@ -51,28 +54,34 @@
 
         <main>
             <h2>Informes</h2>
-            <div class="cont-moneda">
+            <div class="cont-moneda" id="contMoneda">
                 <div class="seleccion-moneda">
                     <h4>Seleccione una moneda</h4>
                     <div>
-                    <select name="" id="seleccion-moneda">
-                        <option value="todas">Todas</option>
-                        <option value="USD Dolar Oficial">Dólar Oficial</option>
-                        <option value="USD blue">Dólar Blue</option>
-                        <option value="USD bolsa">Dólar Bolsa (MEP)</option>
-                        <option value="USD contadoconliqui">Dólar Contado con Liqui (CCL)</option>
-                        <option value="USD tarjeta">Dólar Tarjeta</option>
-                        <option value="USD mayorista">Dólar Mayorista</option>
-                        <option value="USD cripto">Dólar Cripto</option>
-                        <option value="EUR Euro Oficial">Euro Oficial</option>
-                        <option value="BRL Real Brasileño">Real Brasileño</option>
-                        <option value="CLP Peso Chileno">Peso Chileno</option>
-                        <option value="UYU Peso Uruguayo">Peso Uruguayo</option>
-                    </select>
-                    <img src="../IMG/Icon_Business_Set_00003_A_icon-icons.com_59841.ico" alt="">
+                        <select name="" id="seleccion-moneda">
+                            <option value="todas">Todas</option>
+                            <option value="USD Dolar Oficial">Dólar Oficial</option>
+                            <option value="USD blue">Dólar Blue</option>
+                            <option value="USD bolsa">Dólar Bolsa (MEP)</option>
+                            <option value="USD contadoconliqui">Dólar Contado con Liqui (CCL)</option>
+                            <option value="USD tarjeta">Dólar Tarjeta</option>
+                            <option value="USD mayorista">Dólar Mayorista</option>
+                            <option value="USD cripto">Dólar Cripto</option>
+                            <option value="EUR Euro Oficial">Euro Oficial</option>
+                            <option value="BRL Real Brasileño">Real Brasileño</option>
+                            <option value="CLP Peso Chileno">Peso Chileno</option>
+                            <option value="UYU Peso Uruguayo">Peso Uruguayo</option>
+                        </select>
+                        <img src="../IMG/Icon_Business_Set_00003_A_icon-icons.com_59841.ico" alt="">
+                    </div>
                 </div>
-                </div>
-                <canvas id="miGrafica" class="grafico"></canvas>
+
+
+                
+
+                    <canvas id="miGrafica" class="grafico" width="500"></canvas>
+
+
             </div>
             <div class="cont-datos">
                 <div class="cont-datos-cabecera">
@@ -142,7 +151,9 @@
 
         <p class="final">TUP - Cátedra de Laboratorio de Computación 2 - Año - 2024</p>
     </footer>
-    
+
 </body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
 <script src="../JS/common.js"></script>
+<script src="../JS/informes.js"></script>
 </html>

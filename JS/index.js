@@ -125,7 +125,7 @@ function creacionCajaMoneda(datos) {
             localStorage.setItem("datos", datosSeleccionados)
             console.log(datosSeleccionados)
         }
-        console.log(datosCasa)
+        
     })
 
     let h4 = document.createElement("h4")

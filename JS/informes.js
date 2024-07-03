@@ -1,5 +1,7 @@
 const tablaDatos = document.getElementById("cont-datos-tabla")
 const seleccionMoneda = document.getElementById("seleccion-moneda")
+//canvas=document.getElementById("miGrafica")
+const contMoneda=document.getElementById("contMoneda")
 console.log(tablaDatos)
 const colores = ["black", "blue", "green", "red", "gold", "orange", "brown", "chocolate", "blueviolet", "slateblue", "goldenrod"]
 let objDatasets = []
@@ -148,40 +150,29 @@ function grafico() {
     let arrayDataset = []
     for (let moneda of monedas) {
         let nuevoArrayData = [moneda]
-
         for (let fecha of etiquetas) {
-
-
             for (let dato of arrayDatos) {
-
-
-
                 if (dato[0] == moneda && dato[3] == fecha) {
                     nuevoArrayData.push(dato[2])
                     asignarNull = false
-
                 }
-
-
                 /*else if (dato[3]!=fecha && dato[0] == moneda ) {
                     nuevoArrayData.push(null)
                 }*/
             }
-
             if (asignarNull) {
                 nuevoArrayData.push(null)
             }
             asignarNull = true
         }
-
         arrayDataset.push(nuevoArrayData)
     }
 
     console.log(arrayDataset)
-
+    
     let ctx = document.getElementById("miGrafica").getContext("2d");
-
-
+    console.log(ctx)
+    
     let cont = 0
     for (let dataSet of arrayDataset) {
 
@@ -203,15 +194,21 @@ function grafico() {
         data: {
             labels: etiquetas,
             datasets: objDatasets
-        }
+        },
+        
+
     });
+    /*
+    datosGrafico.canvas.style.height = '250px';
+    datosGrafico.canvas.style.width = '60%';
+    https://www.chartjs.org/docs/latest/configuration/responsive.html
+    */
 }
 
 
 
 
-
-
+let canvas=document.getElementById("miGrafica")
 
 
 
@@ -227,31 +224,61 @@ seleccionMoneda.addEventListener("change", () => {
         }
 
 
-        for (let dataset of objDatasets) {
-            if (dataset.label == seleccionMoneda.value) {
-                datosGrafico.data.datasets = [dataset]
-                
-            }
-            
-        }
-        if(seleccionMoneda.value == "todas"){
-            datosGrafico.data.datasets=objDatasets
-        }
+
+
+
     }
 
+    for (let dataset of objDatasets) {
+        if (dataset.label == seleccionMoneda.value) {
+            //datosGrafico.data.datasets = [dataset]
+            recargarGrafico([dataset])
+        }
 
+    }
 
+    if (seleccionMoneda.value == "todas") {
+        //datosGrafico.data.datasets = objDatasets
+        recargarGrafico(objDatasets)
+    }
 
+    /*
+    chart.canvas.style.height = '200px';
+    chart.canvas.style.width = '200px';
 
+    */
 
-    datosGrafico.data.datasets
+    
+
+    
+    
+    
+    //canvas=aux
+    
 
 })
 
 
 
 
+function recargarGrafico(datos){
 
+    canvas.remove()
+    canvas=document.createElement("canvas")
+    canvas.id="miGrafica"
+    canvas.classList.add("grafico")
+    contMoneda.appendChild(canvas)
+
+const etiquetas = ordenarFechas(unificarFechas());
+const ctx = document.getElementById("miGrafica").getContext("2d");
+new Chart(ctx, {
+type: "line",
+data: {
+labels: etiquetas,
+datasets:datos
+}
+});
+}
 
 
 

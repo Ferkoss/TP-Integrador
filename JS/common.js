@@ -89,27 +89,31 @@ function unificarFechas() {
 }
 
 
-const imagenComentario=document.getElementById("imagen-comentario")
-const nombreComentario=document.getElementById("nombre-comentario")
-const textoComentario=document.getElementById("texto-comentario")
-let posicionActual=0
-arrayComentarios=[
-["../IMG/cara.jpg","Juan Perez","Es la mejor página que visité en mi vida"],
-["../IMG/cara2.jpg","Marcela Gimenez","¡¡¡Me encanta esta página!!!"],
-["../IMG/cara3.jpg","Maria Fernandez","El mejor sitio web que visité hasta ahora, me encanta!!!"]
+const imagenComentario = document.getElementById("imagen-comentario")
+const nombreComentario = document.getElementById("nombre-comentario")
+const textoComentario = document.getElementById("texto-comentario")
+let posicionActual = 0
+
+arrayComentarios = [
+    ["../IMG/cara.jpg", "Juan Perez", "Es la mejor página que visité en mi vida"],
+    ["../IMG/cara2.jpg", "Marcela Gimenez", "¡¡¡Me encanta esta página!!!"],
+    ["../IMG/cara3.jpg", "Maria Fernandez", "El mejor sitio web que visité hasta ahora, me encanta!!!"]
 ]
 
-function pasarFoto() {
-    if(posicionActual == arrayComentarios.length-1) {
+
+
+
+
+setInterval(() => {
+    if (posicionActual == arrayComentarios.length - 1) {
         posicionActual = 0;
-    } else {
+    }
+    else {
         posicionActual++;
     }
-    imagenComentario.src=arrayComentarios[posicionActual][0]
-    nombreComentario.innerText=arrayComentarios[posicionActual][1]
-    textoComentario.innerText=arrayComentarios[posicionActual][2]
-}
 
-
-console.log(imagenComentario)
-setInterval(()=>(pasarFoto()),5000)
+    imagenComentario.src = arrayComentarios[posicionActual][0]
+    nombreComentario.innerText = arrayComentarios[posicionActual][1]
+    textoComentario.innerText = arrayComentarios[posicionActual][2]
+    
+    },5000)
