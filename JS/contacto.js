@@ -72,8 +72,8 @@ async function enviarMail(){
       from_name: nombre.value,
       message: mensaje.value,
       email_id: mail.value,
-      to_email: "fermkoss@gmail.com",
-      //email_id_copia: "lucademinas@gmail.com"
+      to_email: "sbruselario@gmail.com",
+      email_id_copia: "hgerardo@gmail.com"
       }
     )
     alert("Formulario enviado correctamente")
