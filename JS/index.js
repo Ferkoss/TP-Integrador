@@ -79,7 +79,7 @@ async function cambioMoneda(moneda) {
         creacionCajaMoneda(datos)
 
 
-        actDatos.innerText = `Datos actualizados al ${datos.fechaActualizacion.slice(0, 10)}`
+        actDatos.innerText = `Datos actualizados al ${reemplazoLetra(datos.fechaActualizacion.slice(0, 19)," ","T")}`
 
     } catch (error) { alert("El error es: " + error) }
 
