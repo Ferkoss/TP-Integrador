@@ -22,9 +22,10 @@ main {
 
 .grafico {
     border: 1px solid black;
-    width: 60% !important;
+    width: 70% !important;
     height: 250px !important;
     margin-right: 10px;
+
 }
 
 .seleccion-moneda {
@@ -140,7 +141,132 @@ width: 40px;
     
 }
 
+.compartir-info:hover{
+    color: goldenrod;
+}
+
+.sombra-compartir{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.5);
+    position:fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.compartir{
+    border: 3px solid black;
+    background-color: lightblue;
+    border-radius: 30px;
+    width: 60%;
+    max-width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    gap:20px;
+
+}
+
+.compartir form{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 20px repeat(3,1fr);
+    width: 95%;
+    height: 90%;
+
+
+    grid-template-areas:
+     ". . boton"
+     "h3 h3 h3"
+     "datos datos datos"
+     ". boton-enviar ."
+
+    ;
+}
+
+.compartir i{
+    grid-area: boton;
+    justify-self: end;
+}
+.compartir i:hover{
+    color: red;
+}
+
+
+.compartir h3{
+    grid-area: h3;
+    justify-self: center;
+    align-self: start;
+    font-size: 28px;
+    
+}
+
+.div-datos{
+    grid-area: datos;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.div-datos div{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-datos div label{
+   width: 80px;
+   font-size: 20px;
+   text-align: center;
+}
+
+.div-datos div input{
+    width: 70%;
+    height: 20px;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.compartir button{
+grid-area: boton-enviar;
+width: 150px;
+height: 40px;
+border-radius: 30px;
+justify-self: center;
+align-self: center;
+}
+
+.compartir button:hover{
+    background-color:rgb(216, 207, 207);
+}
+
+.sin-archivos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sin-archivos p{
+    font-size: 30px;
+    
+}
+
+
 @media screen and (max-width:650px){
+
+    .grafico{
+        height: 180px !important;
+        width: 90vw !important;
+    }
+
     .cont-moneda{
         flex-direction: column;
         width: 100%;
@@ -148,6 +274,11 @@ width: 40px;
     }
     .cont-datos-cabecera p {
         font-size: 10px;
+    }
+    .compartir h3{
+        display: block;
+        font-size: 20px;
+        text-align: center;
     }
 }
 

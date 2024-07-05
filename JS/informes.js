@@ -1,12 +1,19 @@
 const tablaDatos = document.getElementById("cont-datos-tabla")
 const seleccionMoneda = document.getElementById("seleccion-moneda")
 //canvas=document.getElementById("miGrafica")
-const contMoneda=document.getElementById("contMoneda")
+const contMoneda = document.getElementById("contMoneda")
 console.log(tablaDatos)
 const colores = ["black", "blue", "green", "red", "gold", "orange", "brown", "chocolate", "blueviolet", "slateblue", "goldenrod"]
 let objDatasets = []
 let arrayDatos = []
 let monedas = []
+const botonCompartir = document.getElementById("boton-compartir")
+const cerrarCompartir = document.getElementById("cerrar-compartir")
+const sombra = document.getElementById("sombra")
+const formEnvioDatos = document.getElementById("form-envio-datos")
+const inputNombre = document.getElementById("nombre")
+const inputEmail = document.getElementById("email")
+
 
 
 function recarga() {
@@ -17,11 +24,15 @@ function recarga() {
             arrayDatos.push(dato.split("/"))
         }
 
-        console.log(arrayDatos)
+        /*console.log(arrayDatos)
         console.log(unificarDatos(0))
-        console.log(ordenarNombresAlfabeticamente(unificarDatos(0)))
+        console.log(ordenarNombresAlfabeticamente(unificarDatos(0)))*/
         monedas = ordenarNombresAlfabeticamente(unificarDatos(0))
         escribirDatos()
+    }
+    else {
+        tablaDatos.classList.add("sin-archivos")
+        tablaDatos.innerHTML = "<p>No se encuentran datos</p>"
     }
 
     grafico()
@@ -70,6 +81,7 @@ function escribirDatos() {
         tablaDatos.appendChild(divMoneda)
         divMoneda.setAttribute("data-moneda", moneda)
 
+
         let divVacio = document.createElement("div")
         divVacio.classList.add("datos")
         tablaDatos.appendChild(divVacio)
@@ -79,16 +91,17 @@ function escribirDatos() {
         divFecha.classList.add("datos")
         tablaDatos.appendChild(divFecha)
         divFecha.setAttribute("data-moneda", moneda)
-
+        
         let divCompra = document.createElement("div")
         divCompra.classList.add("datos")
         tablaDatos.appendChild(divCompra)
         divCompra.setAttribute("data-moneda", moneda)
-
+        
         let divVenta = document.createElement("div")
         divVenta.classList.add("datos")
         tablaDatos.appendChild(divVenta)
         divVenta.setAttribute("data-moneda", moneda)
+        
 
         let divIcono = document.createElement("div")
         divIcono.classList.add("datos")
@@ -143,7 +156,7 @@ function grafico() {
     /*Gráfica con varias líneas*/
     //Axis X
     const etiquetas = ordenarFechas(unificarFechas());
-
+    objDatasets = []
 
     //Datos
     let asignarNull = true
@@ -156,9 +169,7 @@ function grafico() {
                     nuevoArrayData.push(dato[2])
                     asignarNull = false
                 }
-                /*else if (dato[3]!=fecha && dato[0] == moneda ) {
-                    nuevoArrayData.push(null)
-                }*/
+                
             }
             if (asignarNull) {
                 nuevoArrayData.push(null)
@@ -169,10 +180,10 @@ function grafico() {
     }
 
     console.log(arrayDataset)
-    
+
     let ctx = document.getElementById("miGrafica").getContext("2d");
     console.log(ctx)
-    
+
     let cont = 0
     for (let dataSet of arrayDataset) {
 
@@ -195,9 +206,9 @@ function grafico() {
             labels: etiquetas,
             datasets: objDatasets
         },
-        
 
     });
+
     /*
     datosGrafico.canvas.style.height = '250px';
     datosGrafico.canvas.style.width = '60%';
@@ -208,7 +219,7 @@ function grafico() {
 
 
 
-let canvas=document.getElementById("miGrafica")
+let canvas = document.getElementById("miGrafica")
 
 
 
@@ -232,14 +243,14 @@ seleccionMoneda.addEventListener("change", () => {
     for (let dataset of objDatasets) {
         if (dataset.label == seleccionMoneda.value) {
             //datosGrafico.data.datasets = [dataset]
-            recargarGrafico([dataset])
+            recargarGrafico(dataset)
         }
 
     }
 
     if (seleccionMoneda.value == "todas") {
         //datosGrafico.data.datasets = objDatasets
-        recargarGrafico(objDatasets)
+        grafico()
     }
 
     /*
@@ -248,37 +259,116 @@ seleccionMoneda.addEventListener("change", () => {
 
     */
 
-    
 
-    
-    
-    
+
+
+
+
     //canvas=aux
-    
+
 
 })
 
 
 
 
-function recargarGrafico(datos){
+function recargarGrafico(datos) {
 
     canvas.remove()
-    canvas=document.createElement("canvas")
-    canvas.id="miGrafica"
+    canvas = document.createElement("canvas")
+    canvas.id = "miGrafica"
     canvas.classList.add("grafico")
     contMoneda.appendChild(canvas)
 
-const etiquetas = ordenarFechas(unificarFechas());
-const ctx = document.getElementById("miGrafica").getContext("2d");
-new Chart(ctx, {
-type: "line",
-data: {
-labels: etiquetas,
-datasets:datos
+    let fechas = ordenarFechas(unificarFechas())
+    let etiquetas = []
+    
+        
+        let dato = datos.data
+        nuevosDatos = []
+        for (let i = 0; i < dato.length; i++) {
+
+            if (dato[i] != null) {
+                nuevosDatos.push(dato[i])
+                etiquetas.push(fechas[i])
+            }
+        }
+        datos.data = nuevosDatos
+        console.log(datos)
+    
+    //const etiquetas = ordenarFechas(unificarFechas());
+
+
+    const ctx = document.getElementById("miGrafica").getContext("2d");
+    new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: etiquetas,
+            datasets: [datos]
+        }
+    });
 }
-});
-}
+
+botonCompartir.addEventListener("click", () => {
+    sombra.style.display = "flex"
+})
+cerrarCompartir.addEventListener("click", () => {
+    sombra.style.display = "none"
+})
+
+
+
+const botonEnviar = document.getElementById("botonEnviar")
+
+botonEnviar.addEventListener("click", () => {
+
+    if (validarEmail(inputEmail.value) && inputNombre.value != "") {
+        let textoPrincipal = ""
+        let arrayDiv = document.querySelectorAll(".moneda, .datos")
+        let conjuntoDiv = []
+
+        for (let i = 0; i < arrayDiv.length; i += 6) {
+            conjuntoDiv.push({ moneda: arrayDiv[i], fecha: arrayDiv[i + 2], compra: arrayDiv[i + 3], venta: arrayDiv[i + 4] })
+        }
+
+        for (let objetoDeDiv of conjuntoDiv) {
+            textoPrincipal += objetoDeDiv.moneda.innerText + "\n"
+            console.log(objetoDeDiv.fecha.children.length)
+            for (let i = 0; i < objetoDeDiv.fecha.children.length; i++) {
+
+                textoPrincipal += "Fecha: " + objetoDeDiv.fecha.children[i].innerText + "\n"
+                textoPrincipal += "Compra: " + objetoDeDiv.compra.children[i].innerText + "\n"
+                textoPrincipal += "Venta: " + objetoDeDiv.venta.children[i].innerText + "\n\n"
+            }
+            textoPrincipal += "-----------------------------------\n\n"
+        }
+
+        console.log(textoPrincipal)
+
+        emailjs.send("service_n2lxghc", "template_5d7uxu7", {
+            from_name: inputNombre.value,
+            to_email: inputEmail.value,
+            message: textoPrincipal
+
+        });
+
+        inputNombre.value = ""
+        inputEmail.value = ""
+        alert("Formulario enviado correctamente")
+    }
+
+})
+
+/*let imagenCanva = document.createElement("img")
+imagenCanva.src = document.getElementById("miGrafica").toDataURL()*/
+
+
+//document.getElementById("miGrafica").toDataURL()
+
+
+
+//content: document.getElementById("miGrafica").toDataURL()
+
 
 
 
@@ -350,5 +440,17 @@ fill: false
                         <i class="fa-solid fa-circle-up"></i>
                         <i class="fa-regular fa-circle-down"></i>
                         <i class="fa-solid fa-circle-up"></i>
-                        
+
                     </div>*/
+
+
+//base 64: permite enviar documentos     data:text/plain;base64
+// document.getElementById("miGrafica").toDataURL()
+
+
+
+
+//.children
+
+
+

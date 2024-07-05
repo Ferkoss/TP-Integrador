@@ -6,7 +6,7 @@ const arrayTerminaciones = [
     "/v1/dolares/oficial", "/v1/dolares/blue", "/v1/dolares/bolsa",
     "/v1/dolares/contadoconliqui", "/v1/dolares/tarjeta", "/v1/dolares/mayorista",
     "/v1/dolares/cripto", "/v1/cotizaciones/eur", "/v1/cotizaciones/brl",
-     "/v1/cotizaciones/clp", "/v1/cotizaciones/uyu"]
+    "/v1/cotizaciones/clp", "/v1/cotizaciones/uyu"]
 
 let datosSeleccionados = []
 let arrayDatos = []
@@ -15,38 +15,49 @@ let arrayDatos = []
 
 
 
+function actualizarArrayDatos() {
+    arrayDatos = []
+    if (localStorage.getItem("datos")) {
+        datosSeleccionados = localStorage.getItem("datos").split(",")
+        for (let dato of datosSeleccionados) {
+            arrayDatos.push(dato.split("/"))
+        }
+        console.log(arrayDatos)
 
+    }
+}
 
 
 
 function recarga() {
-    if(localStorage.getItem("datos")){
-    datosSeleccionados=localStorage.getItem("datos").split(",") 
-                         
-    for (let dato of datosSeleccionados) {
-        arrayDatos.push(dato.split("/"))
-    }
 
-    console.log(arrayDatos)
 
-    }
+    actualizarArrayDatos()
 
-    for (let i of arrayTerminaciones) {
-        cambioMoneda(i)
-    }
+    setInterval(actualizarMoneda = () => {
+        
+        actualizarArrayDatos()
+        
+        contCajaMoneda.innerHTML = ""
+        for (let i of arrayTerminaciones) {
+            cambioMoneda(i)
+        }
+        console.log("Moneda Actualizada")
+    },60000*5)
 
+    actualizarMoneda()
 
 }
 /*Datos actualizados al 15/04/2024 17:30hs */
 
 async function cambioMoneda(moneda) {
-    
+
 
     const url = `https://dolarapi.com${moneda}`
     try {
         let response = await fetch(url)
         let datos = await response.json()
-        console.log(datos)
+
         switch (moneda) {
             case "/v1/dolares/oficial": datos.casa = "Dolar Oficial"
                 break
@@ -69,13 +80,19 @@ async function cambioMoneda(moneda) {
 
 
         actDatos.innerText = `Datos actualizados al ${datos.fechaActualizacion.slice(0, 10)}`
-        
-    } catch (error) { }
+
+    } catch (error) { alert("El error es: " + error) }
 
 }
 
 
-async function retornoDatos() {
+
+
+
+
+
+
+/*async function retornoDatos() {
     let moneda = seleccionMoneda.value
     const url = `https://dolarapi.com${moneda}`
     try {
@@ -87,7 +104,7 @@ async function retornoDatos() {
         console.log("El error es "+error)
     }
 
-}
+}*/
 
 
 
@@ -96,15 +113,16 @@ function creacionCajaMoneda(datos) {
     let datosCasa = datos.casa
     let datosCompra = datos.compra
     let datosVenta = datos.venta
-    let datosFecha = datos.fechaActualizacion.slice(0, 10)
-    let datosMoneda=datos.moneda
+    //let datosFecha = eliminarElemento(datos.fechaActualizacion.slice(0,19),"T").join("")
+    let datosFecha = reemplazoLetra(datos.fechaActualizacion.slice(0, 19), " ", "T")
+    console.log(datosFecha)
+    let datosMoneda = datos.moneda
 
 
     let divCajaMoneda = document.createElement("div")
-    divCajaMoneda.setAttribute("data-moneda",datos.moneda)
+    divCajaMoneda.setAttribute("data-moneda", datos.moneda)
     divCajaMoneda.classList.add("caja-moneda")
     contCajaMoneda.appendChild(divCajaMoneda)
-    divCajaMoneda.style.display="none"
 
     let div2 = document.createElement("div")
     divCajaMoneda.appendChild(div2)
@@ -115,21 +133,21 @@ function creacionCajaMoneda(datos) {
     Img.addEventListener("click", seleccionImagen = () => {
         if (Img.style.backgroundColor == "red") {
             Img.style.backgroundColor = "transparent"
-            datosSeleccionados = eliminarElemento(datosSeleccionados, datosMoneda+" "+datosCasa + "/" + datosCompra + "/" + datosVenta + "/" + datosFecha)
+            datosSeleccionados = eliminarElemento(datosSeleccionados, datosMoneda + " " + datosCasa + "/" + datosCompra + "/" + datosVenta + "/" + datosFecha)
             console.log(datosSeleccionados)
             localStorage.setItem("datos", datosSeleccionados)
         }
         else {
             Img.style.backgroundColor = "red"
-            datosSeleccionados.push(datosMoneda+" "+datosCasa  + "/" + datosCompra + "/" + datosVenta + "/" + datosFecha)
+            datosSeleccionados.push(datosMoneda + " " + datosCasa + "/" + datosCompra + "/" + datosVenta + "/" + datosFecha)
             localStorage.setItem("datos", datosSeleccionados)
             console.log(datosSeleccionados)
         }
-        
+
     })
 
     let h4 = document.createElement("h4")
-    h4.innerText = datosMoneda+" "+datosCasa 
+    h4.innerText = datosMoneda + " " + datosCasa
     div2.appendChild(h4)
 
     let divContComVen = document.createElement("div")
@@ -160,10 +178,10 @@ function creacionCajaMoneda(datos) {
     p4.innerText = datos.venta
     divVenta.appendChild(p4)
 
-    
 
-    if (existe(datosMoneda+" "+datosCasa, String(datosCompra), String(datosVenta), datosFecha)) {
-        
+
+    if (existe(datosMoneda + " " + datosCasa, String(datosCompra), String(datosVenta), datosFecha)) {
+
         Img.style.backgroundColor = "red"
     }
 
@@ -185,20 +203,20 @@ function existe(datosCasa, datosCompra, datosVenta, datosFecha) {
     return false
 }
 
-seleccionMoneda.addEventListener("change",()=>{
-    
-    for(let moneda of document.querySelectorAll(".caja-moneda")){
-        if(moneda.getAttribute("data-moneda")==seleccionMoneda.value){
-            moneda.style.display="flex"
+seleccionMoneda.addEventListener("change", () => {
+
+    for (let moneda of document.querySelectorAll(".caja-moneda")) {
+        if (moneda.getAttribute("data-moneda") == seleccionMoneda.value || seleccionMoneda.value == "todas") {
+            moneda.style.display = "flex"
             //actDatos.innerText = `Datos actualizados al ${moneda.getAttribute("data-fechaMoneda").slice(0, 10)}`
         }
-        else{
-            moneda.style.display="none"
+        else {
+            moneda.style.display = "none"
         }
-        
+
     }
-    
-    
+
+
 })
 
 
@@ -234,22 +252,22 @@ seleccionMoneda.addEventListener("change",()=>{
 
 /*
 casa
-: 
+:
 "oficial"
 compra
-: 
+:
 882
 fechaActualizacion
-: 
+:
 "2024-06-14T15:05:00.000Z"
 moneda
-: 
+:
 "USD"
 nombre
-: 
+:
 "Oficial"
 venta
-: 
+:
 922 */
 
 
@@ -282,3 +300,8 @@ venta
                     <option value="/v1/dolares/mayorista">Dólar Mayorista</option>
                     <option value="/v1/dolares/cripto">Dólar Cripto</option>
  */
+
+
+
+
+

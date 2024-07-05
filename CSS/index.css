@@ -95,7 +95,10 @@ margin-right: 10px;
     
 }
 
-
+.aviso-click::before{
+    content:"!";
+    font-size: 30px;
+}
 
 @media screen and (max-width:550px){
 

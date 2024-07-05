@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
+
+
+
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +24,28 @@
 
 <body onload="recarga()">
 
-
+    <div class="sombra-compartir" id="sombra">
+        <div class="compartir">
+            
+            <form action="" id="form-envio-datos">
+                <i class="fa-solid fa-xmark" id="cerrar-compartir"></i>
+                
+                
+                <h3>DATOS DEL DESTINATARIO</h3>
+                <div class="div-datos">
+                <div class="div-nombre">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="div-email">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+                <button type="button" id="botonEnviar">Enviar</button>
+            </form>
+        </div>
+        </div>
 
     <header id="head">
         <h1><img src="" alt="">Cotizador de Monedas</h1>
@@ -95,7 +124,7 @@
 
                 </div>
             </div>
-            <button class="compartir-info">COMPARTIR INFORMACIÓN</button>
+            <button class="compartir-info" id="boton-compartir">COMPARTIR INFORMACIÓN</button>
         </main>
 
 
@@ -112,7 +141,7 @@
                 <h3>Institucional</h3>
                 <ul>
                     <li><a href="#">¿Quienes Somos?</a></li>
-                    <li><a href="#">Socios Estrategicos</a></li>
+                    <li><a href="#">Socios Estratégicos</a></li>
                     <li><a href="#">Trabaje con nosotros</a></li>
                     <li><a href="#">Ayuda</a></li>
                 </ul>
@@ -123,7 +152,7 @@
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="miArchivo.html">Mi Archivo</a></li>
                     <li><a href="informes.html">Informes</a></li>
-                    <li><a href="contacto.html">Contactenos</a></li>
+                    <li><a href="contacto.html">Contáctenos</a></li>
                 </ul>
             </div>
             <div>
@@ -152,7 +181,11 @@
         <p class="final">TUP - Cátedra de Laboratorio de Computación 2 - Año - 2024</p>
     </footer>
 
+   
+    
 </body>
+<script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">emailjs.init('tvR12jHg4Tez_c-w3')</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
 <script src="../JS/common.js"></script>
 <script src="../JS/informes.js"></script>

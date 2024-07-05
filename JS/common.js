@@ -14,9 +14,16 @@ function compararMayorFecha(fecha1, fecha2) {
     let año1 = Number(fecha1.slice(0, 4))
     let mes1 = Number(fecha1.slice(5, 7))
     let dia1 = Number(fecha1.slice(8, 10))
+    let hora1 = Number(fecha1.slice(11,13))
+    let minuto1 = Number(fecha1.slice(14,16))
+    let segundo1=Number(fecha1.slice(17,19))
+
     let año2 = Number(fecha2.slice(0, 4))
     let mes2 = Number(fecha2.slice(5, 7))
     let dia2 = Number(fecha2.slice(8, 10))
+    let hora2 = Number(fecha2.slice(11,13))
+    let minuto2 = Number(fecha2.slice(14,16))
+    let segundo2=Number(fecha2.slice(17,19))
 
     if (año1 > año2) {
         return fecha1
@@ -36,6 +43,26 @@ function compararMayorFecha(fecha1, fecha2) {
     else if (dia1 < dia2) {
         return fecha2
     }
+    else if(hora1 > hora2){
+        return fecha1
+    }
+    else if( hora1 < hora2){
+        return fecha2
+    }
+    else if(minuto1 > minuto2){
+        return fecha1
+    }
+    else if( minuto1 < minuto2){
+        return fecha2
+    }
+
+    else if(segundo1 > segundo2){
+        return fecha1
+    }
+    else if( segundo1 < segundo2){
+        return fecha2
+    }
+   
     else {
         //alert("Error, Fechas iguales "+fecha1)
         return fecha1
@@ -88,6 +115,41 @@ function unificarFechas() {
     return fechasUnificadas
 }
 
+function reemplazoLetra(texto,nuevaLetra,letraReemplazar){
+    retornoTexto=""
+    for(let letra of texto){
+        if(letraReemplazar==letra){
+            letra=nuevaLetra
+        }
+        retornoTexto+=letra
+    }
+    return retornoTexto
+}
+
+function validarEmail(email){
+    if(email==""){
+        alert("Ingrese el Email")
+        return false
+    }
+
+    if(email[0]=="@"){
+        alert("Ingrese datos antes del @")
+        return false
+    }
+
+    if(email[email.length-1]=="@"){
+        alert("Ingrese datos despues del @")
+        return false
+    }
+
+    for(let letra of email){
+        if(letra=="@"){
+            return true
+        }
+    }
+    alert("Ingrese el @ del Email")
+    return false
+}
 
 const imagenComentario = document.getElementById("imagen-comentario")
 const nombreComentario = document.getElementById("nombre-comentario")

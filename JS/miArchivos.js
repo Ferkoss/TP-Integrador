@@ -20,6 +20,11 @@ function recarga() {
         ingresarDatos()
     }
 
+    else{
+        contMiArchivo.classList.add("sin-archivos")
+        contMiArchivo.innerHTML="<p>No se encuentran datos</p>"
+    }
+
 
 }
 

@@ -99,6 +99,14 @@ font-size: 15px;
     width: 18px;
 }
 
-@media screen and (max-width:550px){
+.sin-archivos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sin-archivos p{
+    font-size: 30px;
     
 }
+
